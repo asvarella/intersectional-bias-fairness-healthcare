@@ -1,10 +1,11 @@
-FROM continuumio/miniconda3:latest
+FROM python:3.12.13-alpine
 
 WORKDIR /project
 
-RUN conda install -y python=3.12.13 && \
-    conda install -y -c conda-forge jupyter && \
-    conda clean -afy
+RUN python -m venv /venv
+ENV PATH="/venv/bin:$PATH"
+
+RUN pip install --no-cache-dir jupyter
 
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
