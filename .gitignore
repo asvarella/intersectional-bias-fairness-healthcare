@@ -1,3 +1,6 @@
+data/processed/*
+data/raw/*
 utils/__pycache__
+utils/eda_adult.html
 .claude/
 .ipynb_checkpoints/
