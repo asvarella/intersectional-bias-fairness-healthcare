@@ -4,9 +4,10 @@
 
 # ---- data ----
 ucimlrepo==0.0.7 # UC Irvine Machine Learning Repository
+pysus==2.7.0 # Brazil's public health data (DATASUS) https://pysus.readthedocs.io/en/latest/
 
 # ---- base libs ----
-numpy==1.26.4
+numpy==2.4.4 # pysus depends on numpy >=2.4.0
 pandas==2.2.3
 scipy==1.15.3
 scikit-learn==1.6.1
