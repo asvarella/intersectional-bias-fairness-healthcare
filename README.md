@@ -6,5 +6,5 @@ This project runs in a conda environment with Python 3.12.13 installed. All othe
 
 Set up conda environment with this Python version and run the command below to install dependencies:
 ```
-pip install requirements.txt
+pip install -r requirements.txt
 ```
