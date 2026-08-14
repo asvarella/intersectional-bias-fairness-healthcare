@@ -4,7 +4,7 @@ from ftplib import FTP
 import pyreaddbc
 from dbfread import DBF
 
-def download_file(ftp, ftp_dir, filename, out_dir='data/raw/'):
+def download_file(ftp, ftp_dir, filename, out_dir='../data/raw/'):
     os.makedirs(out_dir, exist_ok=True)
     out_path = os.path.join(out_dir, filename)
     print(f"Baixando {filename} do FTP DATASUS...")
@@ -46,8 +46,8 @@ def process_sih(df):
         res['desfecho'] = 'Alta'
         
     res = res.dropna(subset=['sexo', 'raca_cor', 'desfecho'])
-    os.makedirs('data/processed', exist_ok=True)
-    res.to_parquet('data/processed/sih_processed.parquet')
+    os.makedirs('../data/processed', exist_ok=True)
+    res.to_parquet('../data/processed/sih_processed.parquet')
     print(f"SIH salvo com {len(res)} registros.")
 
 def process_sim(df):
@@ -68,8 +68,8 @@ def process_sim(df):
     res['tipo_obito'] = 'Não Evitável' 
     
     res = res.dropna(subset=['sexo', 'raca_cor'])
-    os.makedirs('data/processed', exist_ok=True)
-    res.to_parquet('data/processed/sim_processed.parquet')
+    os.makedirs('../data/processed', exist_ok=True)
+    res.to_parquet('../data/processed/sim_processed.parquet')
     print(f"SIM salvo com {len(res)} registros.")
 
 def process_sinasc(df):
@@ -98,8 +98,8 @@ def process_sinasc(df):
         res['desfecho_nascimento'] = 'Normal'
         
     res = res.dropna()
-    os.makedirs('data/processed', exist_ok=True)
-    res.to_parquet('data/processed/sinasc_processed.parquet')
+    os.makedirs('../data/processed', exist_ok=True)
+    res.to_parquet('../data/processed/sinasc_processed.parquet')
     print(f"SINASC salvo com {len(res)} registros.")
 
 if __name__ == '__main__':
@@ -122,4 +122,4 @@ if __name__ == '__main__':
     process_sinasc(df_sinasc)
     
     ftp.quit()
-    print("Sucesso! Todos os datasets foram salvos em data/processed/")
+    print("Sucesso! Todos os datasets foram salvos em ../data/processed/")
